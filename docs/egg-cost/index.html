@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Do Your Eggs Really Cost? — Backyard Egg Cost Calculator</title>
+<meta name="description" content="Free calculator for backyard chicken keepers: enter your flock, feed, and coop costs to find what your eggs really cost per dozen — and how that compares to the store. No ads, no signup.">
+<meta property="og:title" content="What do your eggs really cost?">
+<meta property="og:description" content="A free, honest egg-cost calculator for backyard chicken keepers. Feed, extras, coop and all.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A5%9A%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-header">
+  <a class="brand" href="../">🛖 The Homestead Toolshed</a>
+</header>
+
+<main>
+  <h1>What do your eggs really cost?</h1>
+  <p class="lede">Every flock keeper eventually does this math on the back of a feed
+  bag. Enter your real numbers and get an honest cost per dozen — feed, bedding,
+  and yes, the coop too.</p>
+
+  <form class="panel" id="calc" aria-label="Egg cost inputs">
+    <fieldset>
+      <legend>Your flock</legend>
+      <div class="field">
+        <label for="hens">Laying hens</label>
+        <input type="number" id="hens" value="6" min="1" max="500" step="1" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="rate">Eggs per hen, per week</label>
+        <input type="number" id="rate" value="4" min="0" max="7" step="0.5" inputmode="decimal">
+        <p class="hint">Most laying breeds average 3–6. Use a year-round average — winter slowdowns and molting count.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Feed</legend>
+      <div class="field">
+        <label for="bagPrice">Price per bag</label>
+        <div class="prefix-input"><span class="prefix">$</span>
+        <input type="number" id="bagPrice" value="22" min="0" step="0.5" inputmode="decimal"></div>
+      </div>
+      <div class="field">
+        <label for="bagWeight">Bag weight (lb)</label>
+        <input type="number" id="bagWeight" value="50" min="1" step="1" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label for="feedRate">Feed per hen, per day (lb)</label>
+        <input type="number" id="feedRate" value="0.25" min="0" max="2" step="0.05" inputmode="decimal">
+        <p class="hint">A standard laying hen eats about ¼&nbsp;lb of feed a day. Free-rangers eat a bit less bought feed; heavy breeds a bit more.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Everything else</legend>
+      <div class="field">
+        <label for="extras">Other monthly costs</label>
+        <div class="prefix-input"><span class="prefix">$</span>
+        <input type="number" id="extras" value="15" min="0" step="1" inputmode="decimal"></div>
+        <p class="hint">Bedding, grit, oyster shell, treats, the occasional replacement waterer.</p>
+      </div>
+      <div class="toggle-row">
+        <input type="checkbox" id="includeSetup" checked>
+        <label for="includeSetup">Include my coop &amp; setup cost</label>
+      </div>
+      <div class="field" id="setupCostField">
+        <label for="setupCost">Coop, run &amp; gear (total spent)</label>
+        <div class="prefix-input"><span class="prefix">$</span>
+        <input type="number" id="setupCost" value="600" min="0" step="25" inputmode="decimal"></div>
+      </div>
+      <div class="field" id="setupYearsField">
+        <label for="setupYears">Spread over (years)</label>
+        <input type="number" id="setupYears" value="5" min="1" max="30" step="1" inputmode="numeric">
+        <p class="hint">A solid coop should last at least this long, so its cost is split across those years.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The store comparison</legend>
+      <div class="field">
+        <label for="storePrice">Store price per dozen</label>
+        <div class="prefix-input"><span class="prefix">$</span>
+        <input type="number" id="storePrice" value="4.50" min="0" step="0.25" inputmode="decimal"></div>
+        <p class="hint">Use the eggs you'd actually buy instead — pasture-raised often runs $7–9.</p>
+      </div>
+    </fieldset>
+  </form>
+
+  <section class="results" aria-live="polite">
+    <div class="hero-tile">
+      <p class="label" id="heroLabel">Your eggs cost</p>
+      <p class="hero-figure" id="heroValue">$—</p>
+      <p class="sub" id="heroSub">per dozen, all-in</p>
+    </div>
+
+    <p class="verdict" id="verdict"></p>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <p class="label">Eggs per month</p>
+        <p class="value" id="statEggs">—</p>
+      </div>
+      <div class="stat-tile">
+        <p class="label">Cost per month</p>
+        <p class="value" id="statMonthly">—</p>
+      </div>
+      <div class="stat-tile">
+        <p class="label">Cost per egg</p>
+        <p class="value" id="statPerEgg">—</p>
+      </div>
+    </div>
+
+    <div class="breakdown">
+      <h2>Where the money goes each month</h2>
+      <div class="bar" id="bar" role="img" aria-label="Monthly cost breakdown bar">
+        <div class="seg seg-feed" id="segFeed" tabindex="0"><span class="tip" id="tipFeed"></span></div>
+        <div class="seg seg-extra" id="segExtra" tabindex="0"><span class="tip" id="tipExtra"></span></div>
+        <div class="seg seg-setup" id="segSetup" tabindex="0"><span class="tip" id="tipSetup"></span></div>
+      </div>
+      <ul class="bar-legend">
+        <li><span class="swatch seg-feed"></span> Feed <span class="amount" id="legFeed">—</span></li>
+        <li><span class="swatch seg-extra"></span> Bedding &amp; extras <span class="amount" id="legExtra">—</span></li>
+        <li id="legSetupRow"><span class="swatch seg-setup"></span> Coop &amp; setup (spread out) <span class="amount" id="legSetup">—</span></li>
+      </ul>
+    </div>
+
+    <div class="share-row">
+      <button type="button" class="share" id="copyBtn">Copy my result</button>
+    </div>
+  </section>
+
+  <details class="how">
+    <summary>How this is calculated</summary>
+    <div class="how-body">
+      <p>No magic — just the arithmetic you'd do on the feed bag, done consistently:</p>
+      <p>
+        <code>feed $/mo = hens × lb/day × 30.4 ÷ bag lb × bag $</code><br>
+        <code>eggs/mo = hens × eggs/wk × 4.35</code><br>
+        <code>cost per dozen = total $/mo ÷ (eggs/mo ÷ 12)</code>
+      </p>
+      <p>If you include your coop and gear, that one-time cost is divided evenly
+      across the years you expect it to last, and that monthly slice is added in.
+      That's the difference between the two numbers people argue about: the
+      <em>operating</em> cost of a dozen, and the <em>all-in</em> cost.</p>
+      <table>
+        <tr><th>Assumption</th><th>Default</th></tr>
+        <tr><td>Feed intake per laying hen</td><td>~0.25 lb/day</td></tr>
+        <tr><td>Lay rate (year-round average)</td><td>4 eggs/hen/week</td></tr>
+        <tr><td>Days per month</td><td>30.4</td></tr>
+      </table>
+      <p>Defaults are typical figures from poultry extension guidance — your birds,
+      climate, and feed will differ, which is exactly why the inputs are editable.
+      This tool doesn't cover chick raising, medication, or losses, and it isn't
+      advice on flock health — for that, your local
+      <a href="https://extension.org" rel="noopener">cooperative extension service</a>
+      is the real deal.</p>
+    </div>
+  </details>
+
+  <p class="note">Everything runs in your browser — nothing is sent or stored anywhere.</p>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../">The Homestead Toolshed</a> — free, honest planning tools for
+  backyard self-sufficiency. No ads, no signups, no tracking.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var inputs = ["hens", "rate", "bagPrice", "bagWeight", "feedRate", "extras",
+                "setupCost", "setupYears", "storePrice"];
+
+  var fmt$ = function (n, cents) {
+    if (!isFinite(n)) return "—";
+    return "$" + n.toLocaleString("en-US", {
+      minimumFractionDigits: cents === false ? 0 : 2,
+      maximumFractionDigits: cents === false ? 0 : 2
+    });
+  };
+
+  var num = function (id, fallback) {
+    var v = parseFloat($(id).value);
+    return isFinite(v) && v >= 0 ? v : fallback;
+  };
+
+  var lastSummary = "";
+
+  function calc() {
+    var hens = Math.max(1, num("hens", 6));
+    var rate = num("rate", 4);
+    var bagPrice = num("bagPrice", 22);
+    var bagWeight = Math.max(1, num("bagWeight", 50));
+    var feedRate = num("feedRate", 0.25);
+    var extras = num("extras", 15);
+    var includeSetup = $("includeSetup").checked;
+    var setupCost = num("setupCost", 600);
+    var setupYears = Math.max(1, num("setupYears", 5));
+    var storePrice = num("storePrice", 4.5);
+
+    var feedMo = hens * feedRate * 30.4 / bagWeight * bagPrice;
+    var setupMo = includeSetup ? setupCost / (setupYears * 12) : 0;
+    var totalMo = feedMo + extras + setupMo;
+
+    var eggsMo = hens * rate * (365 / 7 / 12);
+    var dozensMo = eggsMo / 12;
+
+    $("setupCostField").style.display = includeSetup ? "" : "none";
+    $("setupYearsField").style.display = includeSetup ? "" : "none";
+    $("legSetupRow").style.display = includeSetup ? "" : "none";
+
+    $("statEggs").textContent = eggsMo > 0 ? Math.round(eggsMo).toLocaleString("en-US") : "0";
+    $("statMonthly").textContent = fmt$(totalMo);
+    $("legFeed").textContent = fmt$(feedMo);
+    $("legExtra").textContent = fmt$(extras);
+    $("legSetup").textContent = fmt$(setupMo);
+
+    // breakdown bar (flex-grow proportions, 2px surface gaps between segments)
+    $("segFeed").style.flexGrow = feedMo;
+    $("segExtra").style.flexGrow = extras;
+    $("segSetup").style.flexGrow = setupMo;
+    $("segSetup").style.display = includeSetup && setupMo > 0 ? "" : "none";
+    $("segExtra").style.display = extras > 0 ? "" : "none";
+    var pct = function (part) { return totalMo > 0 ? Math.round(part / totalMo * 100) + "%" : "0%"; };
+    $("tipFeed").textContent = "Feed: " + fmt$(feedMo) + "/mo (" + pct(feedMo) + ")";
+    $("tipExtra").textContent = "Extras: " + fmt$(extras) + "/mo (" + pct(extras) + ")";
+    $("tipSetup").textContent = "Setup: " + fmt$(setupMo) + "/mo (" + pct(setupMo) + ")";
+    $("bar").setAttribute("aria-label",
+      "Monthly cost breakdown: feed " + fmt$(feedMo) +
+      ", extras " + fmt$(extras) +
+      (includeSetup ? ", coop and setup " + fmt$(setupMo) : ""));
+
+    if (eggsMo <= 0) {
+      $("heroValue").textContent = "∞";
+      $("heroSub").textContent = "no eggs right now — every one is priceless";
+      $("statPerEgg").textContent = "—";
+      $("verdict").innerHTML = "Molting season, winter break, or freeloaders? " +
+        "At <strong>" + fmt$(totalMo) + "/month</strong> and zero eggs, this dozen " +
+        "is on the house — the chickens' house.";
+      lastSummary = "My chickens currently produce 0 eggs and cost " +
+        fmt$(totalMo) + "/month. Worth every penny.";
+      return;
+    }
+
+    var perDozen = totalMo / dozensMo;
+    var perEgg = totalMo / eggsMo;
+    var opPerDozen = (feedMo + extras) / dozensMo;
+
+    $("heroValue").textContent = fmt$(perDozen);
+    $("heroSub").textContent = includeSetup
+      ? "per dozen, all-in (" + fmt$(opPerDozen) + " counting only feed & extras)"
+      : "per dozen, feed & extras only";
+    $("statPerEgg").textContent = fmt$(perEgg);
+
+    var deltaDozen = perDozen - storePrice;
+    var deltaYear = deltaDozen * dozensMo * 12;
+    var v;
+    if (storePrice <= 0) {
+      v = "Enter a store price to see the comparison.";
+    } else if (deltaDozen > 0.05) {
+      v = "That's <strong>" + fmt$(deltaDozen) + " more per dozen</strong> than the " +
+          fmt$(storePrice) + " store carton — about <strong>" + fmt$(deltaYear, false) +
+          " a year</strong> for eggs you know everything about. Most of us decide " +
+          "that's a bargain.";
+    } else if (deltaDozen < -0.05) {
+      v = "You're beating the store by <strong>" + fmt$(-deltaDozen) +
+          " a dozen</strong> — roughly <strong>" + fmt$(-deltaYear, false) +
+          " a year</strong> saved. The flock is officially pulling its weight.";
+    } else {
+      v = "You're breaking even with the store — and the store's eggs were never " +
+          "this fresh.";
+    }
+    $("verdict").innerHTML = v;
+
+    lastSummary = "My backyard eggs cost " + fmt$(perDozen) + "/dozen all-in (" +
+      Math.round(eggsMo) + " eggs/mo from " + hens + " hens, " +
+      fmt$(totalMo) + "/mo). Store price: " + fmt$(storePrice) + "/dozen. " +
+      "Calculated with the free egg cost calculator at the Homestead Toolshed.";
+  }
+
+  inputs.forEach(function (id) { $(id).addEventListener("input", calc); });
+  $("includeSetup").addEventListener("change", calc);
+
+  $("copyBtn").addEventListener("click", function () {
+    var btn = this;
+    var done = function () {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = "Copy my result"; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastSummary).then(done);
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = lastSummary;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  calc();
+})();
+</script>
+</body>
+</html>
