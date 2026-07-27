@@ -7,16 +7,21 @@
 > Flock" or wherever the "true cost of eggs" threads live. Read the forum's
 > promotion rules first; if links from new members are restricted, ask a
 > moderator.
+>
+> **Retype in your own words, and only claim what you can back up in live
+> conversation.** Old-forum regulars click profiles — an account created last
+> week cannot say "long-time lurker," and every biographical detail will be
+> tested in replies.
 
 **Thread title:**
 A free calculator for the eternal "what do my eggs really cost" question
 
 **Body:**
 
-Long-time lurker on the egg-economics threads here — "The true cost of backyard
-eggs" and the legendary "My 'Free' Eggs are costing me a FORTUNE" genre are half
-of why I started keeping a spreadsheet. Eventually the spreadsheet became a
-proper little tool, and I'd rather give it away than keep it to myself:
+The "true cost of backyard eggs" threads — and the whole "My 'Free' Eggs are
+costing me a FORTUNE" genre — are the reason this exists. I built a free
+calculator that does that math consistently instead of forty different ways
+per thread:
 
 https://jbourgogne.github.io/homestead-toolshed/egg-cost/
 
@@ -31,10 +36,10 @@ What it does:
 - Every formula is shown on the page — no black box
 
 And what it doesn't: no ads, no signup, no tracking, nothing leaves your
-browser. It's part of a free-tools-for-homesteaders experiment I'm running
-(with an AI assistant doing a lot of the building — the chickens are mine
-though). The site also has a coop & run size calculator and a "how many hens
-do you actually need" planner, if those threads are more your genre.
+browser. It's part of a free-tools-for-homesteaders experiment I'm running,
+with an AI assistant doing a lot of the building. The site also has a coop &
+run size calculator and a "how many hens do you actually need" planner, if
+those threads are more your genre.
 
-If the defaults look off to your flock's reality, that's exactly the feedback I
-want — the defaults are meant to be honest typical figures, not best-case ones.
+If the defaults look off against your flock's reality, say so — they're meant
+to be typical figures rather than best-case ones, and corrections get made.

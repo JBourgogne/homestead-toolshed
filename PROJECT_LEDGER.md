@@ -90,24 +90,24 @@ gardening calculators (5, 6) have strong incumbents — deprioritized.
   light line ("an AI assistant did a lot of the heavy lifting"). Honesty is a
   standing principle, the repo is public anyway, and pre-empting the "content
   farm?" suspicion likely helps more than it hurts. Human may veto/trim.
+- **2026-07-26 (S5) — Outreach drafts are briefs, not scripts.** Two mandatory
+  rules after a moderator-lens cold read: (1) the human retypes every post in
+  their own words — cross-sub template fingerprints and AI-polished prose are
+  the top detection vectors; (2) drafts carry zero invented biography — Claude
+  had written persona details (chicken ownership, "long-time lurker", origin
+  stories) it cannot verify, which would have violated the no-astroturfing
+  principle. All drafts are now persona-neutral; the human adds only true
+  details.
 
 ## Human Tasks (open)
 
-### Task 2 — Read the three post drafts in `/outreach`, then post the first (~10 min)
+### Task 2 — Follow `outreach/DAY_BY_DAY.md` (≤10 min/day, Jul 27 → Aug 8)
 
-The live URL is already in the drafts. Steps:
-
-1. Read `outreach/README.md` (ground rules) and the three drafts. Note any
-   objections — especially to the AI-disclosure line (see standing decisions).
-2. Check r/homestead's rules on self-promotion (sidebar/wiki). If unclear,
-   modmail first using the one-liner in the draft's header note.
-3. Post `post-r-homestead.md` (adapt the words to your own voice freely —
-   authenticity beats polish).
-4. Over the following days: reply to every comment, and paste anything
-   interesting (praise, complaints, feature requests, "this is wrong") into
-   the ledger's parking lot — or just tell Claude next session.
-5. Stagger the other two posts per the README (BYC forum needs an account with
-   a bit of genuine participation first — start that whenever).
+The old multi-step version of this task is now a dated, day-by-day guide:
+**`outreach/DAY_BY_DAY.md`** (written S5 at the human's request). Short form:
+account participation this week → modmail r/homestead Tue → post Sat Aug 2 →
+reply to everything → paste feedback into the Feedback log below → permies
+next, then the rest per CHANNELS.md sequencing. Contingencies are in the guide.
 
 ## Human Tasks (completed)
 
@@ -115,6 +115,12 @@ The live URL is already in the drafts. Steps:
 - 2026-07-26 — **Task 1 done (deploy):** human created the GitHub repo and
   authenticated `gh` for the personal account (JBourgogne) alongside the work
   account; Claude pushed, enabled Pages via API, and verified the live site.
+
+## Feedback log (paste raw community feedback here — no formatting needed)
+
+*(empty — first post pending. Anything goes: quotes, links to comments,
+"someone said the winter number is off", traffic anecdotes. Claude triages
+each entry next session: verify → fix → reply suggestion.)*
 
 ## Open questions / parking lot
 
@@ -189,7 +195,28 @@ The live URL is already in the drafts. Steps:
   the three original drafts predated tool #3 — r/homestead draft now mentions
   the full trilogy; both chicken-community drafts got a one-line sibling-tools
   mention. (r/selfreliance draft deliberately deferred until Tier 1 lands.)
-- Pushed; live verification of the three fixed pages pending Pages rebuild.
+- Pushed; three fixed pages verified live (byte-for-byte) after Pages rebuild.
+- **Session 5 continued (human asked for a day-by-day guide + final sweep):**
+  - Wrote `outreach/DAY_BY_DAY.md` — dated ≤10-min/day plan Jul 27 → Aug 8
+    (participation week → modmail Tue → post Sat Aug 2 → reply/capture →
+    permies → the rest), with contingencies. Ledger Task 2 now points at it.
+  - Added a **Feedback log** scaffold section to this ledger for raw pastes.
+  - **Moderator-lens cold read** of all 7 drafts (hostile-mod + jaded-member
+    perspectives). Big catch: drafts contained invented biography (chicken
+    ownership, "long-time lurker", a spreadsheet origin story) — an
+    astroturf landmine under our own rules. All drafts made persona-neutral;
+    "retype in your own words" and "only claim what's true" are now mandatory
+    ground rules (README + guide + standing decision). Also fixed: breed
+    preset mismatch in the r/chickens draft (said "production, dual-purpose,
+    or heritage"; tool has production / solid layers / heritage+dual-purpose),
+    engagement-bait shortlist cut from the r/homestead closer, permies
+    "this crowd will care" pandering cut, homesteading-today list prose-ified,
+    r/Homesteading draft demoted to OPTIONAL (fourth-sub-same-URL = campaign
+    profile), repeated cross-draft phrases varied, "honestly" tic reduced.
+  - Open question for the human (next session): does Jake actually keep
+    chickens? Drafts no longer assume either way, but real details would
+    strengthen every post — and if not, the framing shifts to "built for the
+    community" honestly.
 
 ### Session 4 — 2026-07-26 (Claude Code, same day)
 - **Adversarial QA pass** on all three tools via two parallel review agents;

@@ -68,7 +68,9 @@ one-channel-at-a-time rule.
 3. r/BackYardChickens + BYC forum once the account/participation groundwork is
    done — the highest-value, highest-bar rooms.
 4. Homesteading Today after at least one genuine participation week.
-5. r/Homesteading 2+ weeks after r/homestead, leading with a different tool.
+5. r/Homesteading 2+ weeks after r/homestead, leading with a different tool —
+   OPTIONAL (S5 moderator review: fourth sub with the same URL is the classic
+   campaign profile; skip unless everything before it went clean).
 6. r/chickens the week after r/BackYardChickens, leading with flock-size or
    coop-size rather than egg-cost.
 7. r/selfreliance last, guide-style, only if 1–6 drew no mod friction.

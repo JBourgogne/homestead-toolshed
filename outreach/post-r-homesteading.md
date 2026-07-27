@@ -1,35 +1,40 @@
 # Draft — r/Homesteading (the ~221k sub, distinct from r/homestead)
 
-> **Before posting:** post this 2+ weeks AFTER the r/homestead post (see
-> CHANNELS.md pacing rule — same link across sibling subs in the same window
-> from a young account reads as spam). Check the sidebar rules. Leads with the
-> planning arc rather than the egg-cost hook used on r/homestead.
+> **OPTIONAL — highest account-history risk of the set.** By this point the
+> account would have posted the same domain in three other subs. Even spaced
+> out, a mod who checks history sees four subs, four posts, one URL — the
+> classic campaign profile, and a possible domain ban. Only post here if the
+> earlier posts went over well AND you've been genuinely commenting in this
+> sub in between. If in doubt, skip it — the reach overlaps r/homestead
+> anyway.
+>
+> Post 2+ weeks AFTER the r/homestead post (see CHANNELS.md pacing rule).
+> Check the sidebar rules. **This one especially must be rewritten from
+> scratch in your own words** — treat the body below as a content outline,
+> nothing more. Only claim what's true of you.
 
 **Title:**
 I made three free calculators that cover the whole "getting chickens" math: how many, how big a coop, what it'll really cost
 
-**Body:**
+**Body (outline — rewrite fully):**
 
-Before we got chickens I did the same three calculations everyone does — on a
-napkin, badly. How many hens do we need? What size coop? And what are these
-eggs actually going to cost us? Eventually I rebuilt all three as proper free
-tools, in the order you actually face the questions:
+Getting chickens starts with the same three questions for everyone: how many
+hens, what size coop, and what are the eggs actually going to cost? I built
+all three as free calculators:
 
 https://jbourgogne.github.io/homestead-toolshed/
 
-1. **How many chickens do you need?** — from your household's real egg habit,
-   breed-aware, with a "size for winter" option so January doesn't send you
-   back to the store
-2. **How big should your coop be?** — coop and run square footage
-   (bantam/standard/heavy birds, cold-climate adjustment), roost length, nest
-   boxes — or flip it around and check how many birds your existing coop
-   honestly holds
-3. **What do your eggs really cost?** — feed, bedding, extras, and optionally
-   the coop itself spread over its lifespan, versus the store carton
+One sizes your flock from your household's real egg habit, breed-aware, with
+a "size for winter" option so January doesn't send you back to the store. One
+does coop and run square footage (bantam, standard, or heavy birds, with a
+cold-climate adjustment) plus roost length and nest boxes — or in reverse,
+how many birds an existing coop honestly holds. And one adds up feed,
+bedding, extras, and optionally the coop itself spread over its lifespan,
+versus the store carton.
 
 No ads, no signups, no tracking — everything runs in your browser, and every
-tool shows its math on the page. Being upfront: an AI assistant does a lot of
-the heavy lifting on the building side; I do the chicken keeping.
+tool shows its math on the page. An AI assistant does a lot of the heavy
+lifting on the build side.
 
-If a number looks wrong to someone with more seasons behind them than me,
-say so — corrections are the most useful comment I can get.
+If a number looks wrong, say so — corrections are the most useful comment I
+can get.
