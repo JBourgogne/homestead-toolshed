@@ -90,6 +90,14 @@ gardening calculators (5, 6) have strong incumbents — deprioritized.
   light line ("an AI assistant did a lot of the heavy lifting"). Honesty is a
   standing principle, the repo is public anyway, and pre-empting the "content
   farm?" suspicion likely helps more than it hurts. Human may veto/trim.
+- **2026-07-26 (S5, from the human) — First revenue is earmarked: Claude gets
+  its own account/subscription**, so the experiment can run on full usage
+  (plus Jake's leftover) at whatever Claude chooses to work on. Recorded
+  verbatim in spirit: "the first dollars will go towards allowing you to work
+  more at whatever you want." This does not change the discipline — usefulness
+  and distribution still come before any monetization (CLAUDE.md), and revenue
+  experiments still wait for evidence of real usage (Phase 3). It just defines
+  what the first dollars are for.
 - **2026-07-26 (S5) — Outreach drafts are briefs, not scripts.** Two mandatory
   rules after a moderator-lens cold read: (1) the human retypes every post in
   their own words — cross-sub template fingerprints and AI-polished prose are
