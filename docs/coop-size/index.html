@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chicken Coop Size Calculator — How Big Should Your Coop &amp; Run Be?</title>
+<meta name="description" content="Free coop and run size calculator for backyard chickens: birds to square footage (or check how many birds your existing coop fits), plus roost length and nest boxes. Breed-size and climate aware. No ads, no signup.">
+<meta property="og:title" content="How big should your chicken coop be?">
+<meta property="og:description" content="A free, honest coop &amp; run size calculator — square footage, roost length, and nest boxes for your flock.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%94%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-header">
+  <a class="brand" href="../">🛖 The Homestead Toolshed</a>
+</header>
+
+<main>
+  <h1>How big should your coop be?</h1>
+  <p class="lede">The most-argued numbers in chicken keeping, done consistently:
+  coop and run square footage, roost length, and nest boxes — sized to your
+  birds, your climate, and how much they range.</p>
+
+  <form class="panel" id="calc" aria-label="Coop size inputs">
+    <div class="mode-toggle" role="radiogroup" aria-label="Calculator mode">
+      <input type="radio" name="mode" id="modePlan" value="plan" checked>
+      <label for="modePlan">Plan a new coop</label>
+      <input type="radio" name="mode" id="modeCheck" value="check">
+      <label for="modeCheck">Check an existing coop</label>
+    </div>
+
+    <fieldset id="planFields">
+      <legend>Your (future) flock</legend>
+      <div class="field">
+        <label for="birds">Number of chickens</label>
+        <input type="number" id="birds" value="6" min="1" max="200" step="1" inputmode="numeric">
+        <p class="hint">Chicken math is real — if you're torn between two numbers, size for the bigger one.</p>
+      </div>
+    </fieldset>
+
+    <fieldset id="checkFields" style="display:none">
+      <legend>Your existing setup</legend>
+      <div class="field-wide">
+        <label>Coop floor size (feet)</label>
+        <div class="dim-pair">
+          <input type="number" id="coopL" value="6" min="1" step="0.5" inputmode="decimal" aria-label="Coop length in feet">
+          <span class="x">×</span>
+          <input type="number" id="coopW" value="4" min="1" step="0.5" inputmode="decimal" aria-label="Coop width in feet">
+        </div>
+        <p class="hint">Floor space the birds can actually stand on — don't count nest boxes that stick out.</p>
+      </div>
+      <div class="field-wide">
+        <label>Run size (feet) — leave 0 if no run</label>
+        <div class="dim-pair">
+          <input type="number" id="runL" value="10" min="0" step="0.5" inputmode="decimal" aria-label="Run length in feet">
+          <span class="x">×</span>
+          <input type="number" id="runW" value="6" min="0" step="0.5" inputmode="decimal" aria-label="Run width in feet">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your birds &amp; situation</legend>
+      <div class="field-wide">
+        <label for="size">Bird size</label>
+        <select id="size">
+          <option value="bantam">Bantams</option>
+          <option value="standard" selected>Standard breeds (most layers — Australorps, Leghorns, sex-links)</option>
+          <option value="heavy">Heavy breeds (Orpingtons, Brahmas, Jersey Giants, Cochins)</option>
+        </select>
+      </div>
+      <div class="toggle-row">
+        <input type="checkbox" id="coldClimate">
+        <label for="coldClimate">Cold winters (snow keeps them inside for days)</label>
+      </div>
+      <div class="toggle-row">
+        <input type="checkbox" id="freeRange">
+        <label for="freeRange">They free-range most of the day</label>
+      </div>
+    </fieldset>
+  </form>
+
+  <section class="results" aria-live="polite">
+    <div class="hero-tile">
+      <p class="label" id="heroLabel">Coop floor space needed</p>
+      <p class="hero-figure" id="heroValue">—</p>
+      <p class="sub" id="heroSub"></p>
+    </div>
+
+    <p class="verdict" id="verdict"></p>
+
+    <div class="stat-row" id="statRow">
+      <div class="stat-tile">
+        <p class="label" id="stat1Label">Run space</p>
+        <p class="value" id="stat1">—</p>
+      </div>
+      <div class="stat-tile">
+        <p class="label" id="stat2Label">Roost length</p>
+        <p class="value" id="stat2">—</p>
+      </div>
+      <div class="stat-tile">
+        <p class="label" id="stat3Label">Nest boxes</p>
+        <p class="value" id="stat3">—</p>
+      </div>
+    </div>
+
+    <div class="share-row">
+      <button type="button" class="share" id="copyBtn">Copy my result</button>
+    </div>
+  </section>
+
+  <details class="how">
+    <summary>How this is calculated</summary>
+    <div class="how-body">
+      <p>Per-bird space, using the roomy community standard rather than bare
+      minimums (crowding is the root of pecking, feather-pulling, and most
+      "why are my hens mean" threads):</p>
+      <table>
+        <tr><th>Bird size</th><th>Coop</th><th>Run</th><th>Roost</th></tr>
+        <tr><td>Bantam</td><td>2 sq ft</td><td>5 sq ft</td><td>8 in</td></tr>
+        <tr><td>Standard</td><td>4 sq ft</td><td>10 sq ft</td><td>10 in</td></tr>
+        <tr><td>Heavy</td><td>5 sq ft</td><td>12 sq ft</td><td>12 in</td></tr>
+      </table>
+      <p><strong>Cold winters</strong> add 1 sq ft per bird to the coop — birds
+      that won't walk on snow spend whole days indoors, and winter is when
+      crowding turns into bullying. <strong>Free-ranging</strong> doesn't change
+      the coop number (they all sleep inside regardless), but the run figure
+      becomes a fallback for bad-weather days rather than a daily requirement.</p>
+      <p>Nest boxes: one per 4 hens (12×12×12&nbsp;in), always at least one, and
+      they'll still all queue for the same favorite. Fun fact backed by long
+      experience: extension guidance technically allows less indoor space
+      (1.5–3 sq ft per bird with outdoor access, per the
+      <a href="https://poultry.extension.org/articles/getting-started-with-small-and-backyard-poultry/housing-for-small-and-backyard-poultry-flocks/space-allowances-in-housing-for-small-and-backyard-poultry-flocks/" rel="noopener">poultry
+      extension space-allowance guidance</a>) — but those are production minima,
+      not happy-backyard-flock numbers. When in doubt, build bigger; nobody has
+      ever complained their coop was too easy to clean.</p>
+      <p>This tool covers space planning only — for ventilation, predator
+      proofing, and flock health, your local
+      <a href="https://extension.org" rel="noopener">cooperative extension
+      service</a> has excellent free guides.</p>
+    </div>
+  </details>
+
+  <p class="note">Everything runs in your browser — nothing is sent or stored anywhere.</p>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../">The Homestead Toolshed</a> — free, honest planning tools for
+  backyard self-sufficiency. No ads, no signups, no tracking.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var SPACE = {
+    bantam:   { coop: 2, run: 5,  roost: 8,  label: "bantams" },
+    standard: { coop: 4, run: 10, roost: 10, label: "standard birds" },
+    heavy:    { coop: 5, run: 12, roost: 12, label: "heavy breeds" }
+  };
+
+  var num = function (id, fallback) {
+    var v = parseFloat($(id).value);
+    return isFinite(v) && v >= 0 ? v : fallback;
+  };
+
+  var lastSummary = "";
+
+  // Suggest a buildable rectangle: common widths, whole-foot length, sane aspect.
+  function suggestDims(area) {
+    var widths = [3, 4, 6, 8, 10, 12];
+    var best = null;
+    for (var i = 0; i < widths.length; i++) {
+      var w = widths[i];
+      var l = Math.ceil(area / w);
+      if (l < w) l = w;
+      if (l / w > 2.5) continue;
+      var waste = w * l - area;
+      if (!best || waste < best.waste) best = { w: w, l: l, waste: waste };
+    }
+    if (!best) { var s = Math.ceil(Math.sqrt(area)); best = { w: s, l: s }; }
+    return best.w + "×" + best.l + " ft";
+  }
+
+  function roostText(inches) {
+    var feet = Math.floor(inches / 12), rem = Math.round(inches % 12);
+    if (feet === 0) return rem + " in";
+    return feet + " ft" + (rem ? " " + rem + " in" : "");
+  }
+
+  function calc() {
+    var mode = $("modePlan").checked ? "plan" : "check";
+    var sz = SPACE[$("size").value];
+    var cold = $("coldClimate").checked;
+    var range = $("freeRange").checked;
+    var coopPer = sz.coop + (cold ? 1 : 0);
+
+    $("planFields").style.display = mode === "plan" ? "" : "none";
+    $("checkFields").style.display = mode === "check" ? "" : "none";
+
+    if (mode === "plan") {
+      var n = Math.max(1, num("birds", 6));
+      var coopArea = Math.ceil(n * coopPer);
+      var runArea = Math.ceil(n * sz.run);
+      var roostIn = n * sz.roost;
+      var boxes = Math.max(1, Math.ceil(n / 4));
+
+      $("heroLabel").textContent = "Coop floor space for " + n + " " + (n === 1 ? "bird" : "birds");
+      $("heroValue").textContent = coopArea + " sq ft";
+      $("heroSub").textContent = "e.g. a " + suggestDims(coopArea) + " coop" +
+        (cold ? " (includes the cold-winter bump)" : "");
+      $("stat1Label").textContent = "Run space";
+      $("stat1").textContent = runArea + " sq ft";
+      $("stat2Label").textContent = "Roost length";
+      $("stat2").textContent = roostText(roostIn);
+      $("stat3Label").textContent = "Nest boxes";
+      $("stat3").textContent = String(boxes);
+
+      $("verdict").innerHTML = range
+        ? "Since they free-range most days, the run (about a <strong>" +
+          suggestDims(runArea) + "</strong> space) is your bad-weather and " +
+          "predator-alert fallback — the coop number still stands, because " +
+          "everybody sleeps indoors."
+        : "That run works out to roughly a <strong>" + suggestDims(runArea) +
+          "</strong> space. These are comfortable minimums, not maximums — " +
+          "extra space is the cheapest insurance against pecking problems.";
+
+      lastSummary = n + " " + sz.label + " need about " + coopArea +
+        " sq ft of coop (" + suggestDims(coopArea) + ") and " + runArea +
+        " sq ft of run" + (cold ? ", sized for cold winters" : "") +
+        ". Roost: " + roostText(roostIn) + ". Nest boxes: " + boxes +
+        ". Via https://jbourgogne.github.io/homestead-toolshed/coop-size/";
+    } else {
+      var coopArea2 = num("coopL", 6) * num("coopW", 4);
+      var runArea2 = num("runL", 0) * num("runW", 0);
+      var coopCap = Math.floor(coopArea2 / coopPer);
+      var runCap = runArea2 > 0 ? Math.floor(runArea2 / sz.run) : null;
+      var cap = runCap === null ? coopCap : Math.min(coopCap, runCap);
+      var limiter = runCap !== null && runCap < coopCap ? "run" : "coop";
+
+      $("heroLabel").textContent = "Your setup comfortably fits";
+      $("heroValue").textContent = cap + (cap === 1 ? " bird" : " birds");
+      $("heroSub").textContent = cap > 0
+        ? "limited by the " + limiter + " (" +
+          (limiter === "coop" ? coopArea2 : runArea2).toLocaleString("en-US") +
+          " sq ft)" + (cold ? ", with the cold-winter bump" : "")
+        : "as sized, this space is too small for " + sz.label;
+      $("stat1Label").textContent = "Coop allows";
+      $("stat1").textContent = coopCap + (coopCap === 1 ? " bird" : " birds");
+      $("stat2Label").textContent = "Run allows";
+      $("stat2").textContent = runCap === null ? "no run" : runCap + (runCap === 1 ? " bird" : " birds");
+      $("stat3Label").textContent = "Nest boxes for " + Math.max(cap, 0);
+      $("stat3").textContent = String(Math.max(1, Math.ceil(Math.max(cap, 1) / 4)));
+
+      if (cap <= 0) {
+        $("verdict").innerHTML = "Every flock starts somewhere — but this " +
+          "footprint is below one bird's worth of space for " + sz.label +
+          ". Consider a bigger build before bringing anyone home.";
+      } else if (runCap !== null && runCap < coopCap) {
+        $("verdict").innerHTML = "Your coop could sleep <strong>" + coopCap +
+          "</strong>, but the run is the bottleneck at <strong>" + runCap +
+          "</strong> — expanding the run is usually the cheaper upgrade.";
+      } else {
+        $("verdict").innerHTML = "The coop is the limit here" +
+          (runCap === null ? " (and with no run, plan on generous free-ranging or add one)" : "") +
+          ". Remember chicken math: everyone ends up wanting more birds than " +
+          "their coop was built for.";
+      }
+
+      lastSummary = "My " + (Math.round(coopArea2 * 10) / 10) + " sq ft coop" +
+        (runArea2 > 0 ? " + " + (Math.round(runArea2 * 10) / 10) + " sq ft run" : "") +
+        " comfortably fits " + cap + " " + sz.label +
+        (cold ? " (cold-winter sizing)" : "") +
+        ". Checked with https://jbourgogne.github.io/homestead-toolshed/coop-size/";
+    }
+  }
+
+  ["birds", "coopL", "coopW", "runL", "runW"].forEach(function (id) {
+    $(id).addEventListener("input", calc);
+  });
+  ["modePlan", "modeCheck", "coldClimate", "freeRange"].forEach(function (id) {
+    $(id).addEventListener("change", calc);
+  });
+  $("size").addEventListener("change", calc);
+
+  $("copyBtn").addEventListener("click", function () {
+    var btn = this;
+    var done = function () {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = "Copy my result"; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastSummary).then(done);
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = lastSummary;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  calc();
+})();
+</script>
+</body>
+</html>

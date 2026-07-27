@@ -28,5 +28,6 @@ useful single-purpose tools for this community (with an AI assistant doing a lot
 of the heavy lifting, honestly). If it's useful, I'd love to know what number it
 gave you. If it's wrong, I'd love to know that more.
 
-What should the next one be? Current shortlist: coop/run size calculator,
-raised-bed soil volume, seed-starting dates from your frost date.
+There's also a coop & run size calculator on the site now (the 4-sq-ft debate,
+made consistent). What should the next one be? Current shortlist: raised-bed
+soil volume, rainwater harvest potential, feed cost projector.

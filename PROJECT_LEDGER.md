@@ -6,26 +6,21 @@ Single source of truth. Read fully at session start. Update before session end.
 
 ## Current status
 
-**Phase:** 1 (foundation) — tool #1 LIVE
+**Phase:** 1 (foundation) — both Phase-1 tools LIVE; first post pending (human)
 **Live site:** https://jbourgogne.github.io/homestead-toolshed/
 **Repo:** https://github.com/JBourgogne/homestead-toolshed (Pages: main + /docs)
-**Tools shipped:** 1 live (egg cost calculator)
+**Tools shipped:** 2 live (egg cost, coop size)
 
 ---
 
 ## Next Actions (queue — do from the top)
 
-1. **Distribution is unblocked** — human posts draft #1 (r/homestead), then
-   staggers the rest per outreach/README.md (see Human Task 2). Watch comments
-   for feedback and log it.
-2. **Light-mode visual check.** Session 1 verified the rendered site in dark
-   mode (the browser's preference); palette is validated for light mode but it
-   was not visually inspected. Also worth a true phone-width pass.
-3. **Build tool #2: coop & run size calculator.** Validation found it's the other
-   half of the chicken cluster (the 4/10 sq-ft rule debate is endless). Inputs:
-   bird count or coop dimensions (solve either direction), climate/confinement
-   adjustment. Same quality bar; add it to the index.
-4. After tools 1–2 are live and posted: revisit the candidate list against any
+1. **Waiting on human:** Reddit account is aging (~2026-08-02 earliest post
+   date). When the first post goes up, gather every piece of feedback into the
+   ledger and act on the actionable ones.
+2. **Verify tool #2 on the live site** (pushed at end of session 2 — confirm
+   Pages rebuilt, spot-check both tools).
+3. After tools 1–2 are live and posted: revisit the candidate list against any
    real feedback before picking tool #3.
 
 ## Validation findings (Session 1, 2026-07-26)
@@ -60,6 +55,7 @@ gardening calculators (5, 6) have strong incumbents — deprioritized.
 | # | Tool | Path | Status |
 |---|---|---|---|
 | 1 | What do your eggs really cost? | `/docs/egg-cost/` | **Live** — https://jbourgogne.github.io/homestead-toolshed/egg-cost/ |
+| 2 | How big should your coop be? | `/docs/coop-size/` | **Live** — https://jbourgogne.github.io/homestead-toolshed/coop-size/ |
 
 ## Standing decisions log
 
@@ -140,6 +136,30 @@ The live URL is already in the drafts. Steps:
 ---
 
 ## Session Log
+
+### Session 2 — 2026-07-26 (Claude Code, same day)
+- **Human progress:** Reddit account created, r/homestead + r/BackYardChickens
+  joined. Account aging + light genuine participation for ~3–7 days before the
+  first post (≈2026-08-02). Claude declined to create the account for the
+  human — accounts/credentials are the human's alone, and a manufactured
+  account would undercut the transparency principle anyway.
+- **Visual pass done:** live site checked in light mode (via injected token
+  override) and at simulated phone width — hero, verdict, collapsed stat tiles
+  all render cleanly. Dark + light both confirmed good.
+- **Built tool #2: "How big should your coop be?"** (`/docs/coop-size/`).
+  Two modes: plan (birds → coop/run sq ft with suggested buildable dimensions,
+  roost length, nest boxes) and check (existing coop/run dimensions → honest
+  bird capacity with the bottleneck named). Bird-size classes
+  (bantam/standard/heavy), cold-winter bump (+1 sq ft/bird coop), free-range
+  note. Explainer cites poultry extension space-allowance guidance and is
+  honest that extension minima are lower than the community 4/10 standard we
+  default to. Verified locally: all six test scenarios correct (24 sq ft for
+  6 standard, cold bump, heavy sizes, capacity checks, too-small warning).
+  Fixed a truncated select by moving it to a full-width field.
+- Index updated with the new tool card; r/homestead draft updated to mention
+  tool #2; segmented-control + select styles added to the shared stylesheet.
+- **Next:** confirm Pages rebuild; then it's feedback-gathering once the human
+  posts. Tool #3 decision deliberately waits for real-world feedback.
 
 ### Session 1 — 2026-07-26 (Claude Code)
 - **Validation pass done** — niche confirmed via web searches of community
