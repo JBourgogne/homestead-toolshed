@@ -284,7 +284,8 @@
     lastSummary = "My backyard eggs cost " + fmt$(perDozen) + "/dozen all-in (" +
       Math.round(eggsMo) + " eggs/mo from " + hens + " hens, " +
       fmt$(totalMo) + "/mo). Store price: " + fmt$(storePrice) + "/dozen. " +
-      "Calculated with the free egg cost calculator at the Homestead Toolshed.";
+      "Calculated with the free egg cost calculator at " +
+      "https://jbourgogne.github.io/homestead-toolshed/egg-cost/";
   }
 
   inputs.forEach(function (id) { $(id).addEventListener("input", calc); });

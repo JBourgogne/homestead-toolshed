@@ -3,13 +3,13 @@
 Free, single-purpose, client-side planning tools for backyard self-sufficiency —
 no ads, no signups, no tracking, no backend. Every tool shows its math.
 
-**Live site:** enable GitHub Pages (main branch, `/docs` folder) — the site
-serves from [`/docs`](docs/).
+**Live site:** https://jbourgogne.github.io/homestead-toolshed/
 
 ## Tools
 
-- **[What do your eggs really cost?](docs/egg-cost/)** — an honest cost per
-  dozen for your backyard flock: feed, bedding, and the coop too.
+- **[What do your eggs really cost?](https://jbourgogne.github.io/homestead-toolshed/egg-cost/)**
+  — an honest cost per dozen for your backyard flock: feed, bedding, and the
+  coop too.
 
 ## About this project
 

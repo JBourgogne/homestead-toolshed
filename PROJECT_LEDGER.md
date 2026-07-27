@@ -6,28 +6,26 @@ Single source of truth. Read fully at session start. Update before session end.
 
 ## Current status
 
-**Phase:** 1 (foundation) — tool #1 built, awaiting deploy
-**Live site:** not yet — git repo ready, Human Task open for GitHub + Pages
-**Tools shipped:** 1 built (egg cost calculator), 0 live
+**Phase:** 1 (foundation) — tool #1 LIVE
+**Live site:** https://jbourgogne.github.io/homestead-toolshed/
+**Repo:** https://github.com/JBourgogne/homestead-toolshed (Pages: main + /docs)
+**Tools shipped:** 1 live (egg cost calculator)
 
 ---
 
 ## Next Actions (queue — do from the top)
 
-1. **(Blocked on Human Task 1)** Once the site is live: verify the live URL on
-   mobile-width, fix anything broken, insert the URL into the three outreach
-   drafts, and update the ledger with the live address.
+1. **Distribution is unblocked** — human posts draft #1 (r/homestead), then
+   staggers the rest per outreach/README.md (see Human Task 2). Watch comments
+   for feedback and log it.
 2. **Light-mode visual check.** Session 1 verified the rendered site in dark
    mode (the browser's preference); palette is validated for light mode but it
-   was not visually inspected. Check both modes once live.
+   was not visually inspected. Also worth a true phone-width pass.
 3. **Build tool #2: coop & run size calculator.** Validation found it's the other
    half of the chicken cluster (the 4/10 sq-ft rule debate is endless). Inputs:
    bird count or coop dimensions (solve either direction), climate/confinement
    adjustment. Same quality bar; add it to the index.
-4. **Distribution begins as soon as the site is live** — human posts draft #1
-   (r/homestead), then staggers the rest per outreach/README.md. Watch comments
-   for feedback and log it.
-5. After tools 1–2 are live and posted: revisit the candidate list against any
+4. After tools 1–2 are live and posted: revisit the candidate list against any
    real feedback before picking tool #3.
 
 ## Validation findings (Session 1, 2026-07-26)
@@ -61,7 +59,7 @@ gardening calculators (5, 6) have strong incumbents — deprioritized.
 
 | # | Tool | Path | Status |
 |---|---|---|---|
-| 1 | What do your eggs really cost? | `/docs/egg-cost/` | Built, verified locally, not yet live |
+| 1 | What do your eggs really cost? | `/docs/egg-cost/` | **Live** — https://jbourgogne.github.io/homestead-toolshed/egg-cost/ |
 
 ## Standing decisions log
 
@@ -94,37 +92,28 @@ gardening calculators (5, 6) have strong incumbents — deprioritized.
 
 ## Human Tasks (open)
 
-### Task 1 — Create the GitHub repo and turn on Pages (~7 min)
+### Task 2 — Read the three post drafts in `/outreach`, then post the first (~10 min)
 
-The local git repo is ready and committed. Steps:
+The live URL is already in the drafts. Steps:
 
-1. On github.com: **New repository** → name: `homestead-toolshed` → Public →
-   do **not** add a README/.gitignore/license (the repo already has content) →
-   Create.
-2. In a terminal in `Desktop/claudeworks/homestead-toolshed` run (replace
-   `YOURUSER` with your GitHub username, or copy the commands GitHub shows
-   under "push an existing repository"):
-   ```
-   git remote add origin https://github.com/YOURUSER/homestead-toolshed.git
-   git push -u origin main
-   ```
-3. On the repo page: **Settings → Pages** → under "Build and deployment":
-   Source = **Deploy from a branch**, Branch = **main**, folder = **/docs** →
-   Save.
-4. Wait ~2 minutes, then visit
-   `https://YOURUSER.github.io/homestead-toolshed/` — you should see The
-   Homestead Toolshed with the egg calculator linked.
-5. Tell Claude the live URL next session (or just say "it's live").
-
-### Task 2 — (After Task 1) Skim the three post drafts in `/outreach` (~3 min)
-
-No action needed yet — posting starts next session once the URL is in the
-drafts. Just read them and note any objections, especially to the AI-disclosure
-line (see standing decisions).
+1. Read `outreach/README.md` (ground rules) and the three drafts. Note any
+   objections — especially to the AI-disclosure line (see standing decisions).
+2. Check r/homestead's rules on self-promotion (sidebar/wiki). If unclear,
+   modmail first using the one-liner in the draft's header note.
+3. Post `post-r-homestead.md` (adapt the words to your own voice freely —
+   authenticity beats polish).
+4. Over the following days: reply to every comment, and paste anything
+   interesting (praise, complaints, feature requests, "this is wrong") into
+   the ledger's parking lot — or just tell Claude next session.
+5. Stagger the other two posts per the README (BYC forum needs an account with
+   a bit of genuine participation first — start that whenever).
 
 ## Human Tasks (completed)
 
 - 2026-07-26 — Handed project off from claude.ai session 0 into Claude Code.
+- 2026-07-26 — **Task 1 done (deploy):** human created the GitHub repo and
+  authenticated `gh` for the personal account (JBourgogne) alongside the work
+  account; Claude pushed, enabled Pages via API, and verified the live site.
 
 ## Open questions / parking lot
 
@@ -134,8 +123,9 @@ line (see standing decisions).
 - Monetization: revisit only after evidence of real usage (Phase 3).
 - Egg tool possible future enhancements (only if feedback asks): break-even
   selling price; breed presets for lay rate; metric units. Shipped > perfect.
-- The copy-result summary line names the site but can't include the URL until
-  one exists — add it to `lastSummary` in `docs/egg-cost/index.html` once live.
+- Machine note: git auth for this repo uses the `JBourgogne` account via the
+  username pinned in the remote URL; the `gh` active account stays
+  `jacobbourgogneRSC` (work). Don't change either without reason.
 
 ## Roadmap
 
@@ -173,9 +163,14 @@ line (see standing decisions).
   r/BackYardChickens, BYC forum) + posting ground rules in `outreach/README.md`.
   Distribution discipline satisfied for this session (code AND distribution
   progress).
-- **Next session:** if live — verify site, insert URL into drafts, hand posting
-  to human, start tool #2 (coop/run size). If not live — start tool #2 anyway,
-  nothing else blocks on it.
+- **Deployed live, same day.** Human created the repo and added personal-account
+  auth (a work account was the default and blocked the first push); Claude
+  pushed, enabled Pages via the API (main + /docs), verified the live site in
+  the browser, put the live URL into the outreach drafts (pointing straight at
+  the tool page) and into the copy-my-result text.
+  **Site: https://jbourgogne.github.io/homestead-toolshed/**
+- **Next session:** check whether the first post happened and log any feedback;
+  light-mode + phone-width visual pass; start tool #2 (coop/run size).
 
 ### Session 0 — 2026-07-26 (claude.ai)
 - Founded the experiment. Agreed on operating model: human provides ~10 min/week

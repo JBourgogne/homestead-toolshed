@@ -15,7 +15,7 @@ back-of-the-feed-bag calculations with forty different answers.
 
 So I built a small free calculator that does it consistently:
 
-[SITE-URL]
+https://jbourgogne.github.io/homestead-toolshed/egg-cost/
 
 You enter your hens, lay rate (year-round average, molting and winter count!),
 feed price, bedding and extras, and — if you're brave — the coop cost spread over

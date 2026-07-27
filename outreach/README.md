@@ -15,7 +15,7 @@ Drafts for the human to review, adapt, and post. Ground rules (from CLAUDE.md):
   first one and respond to every comment before posting the next.
 - **Feedback is the product.** Requests and complaints in the comments are next
   session's roadmap — paste anything interesting into the ledger's parking lot.
-- Replace `[SITE-URL]` with the live GitHub Pages URL before posting.
+- The live URL is already filled into the drafts: https://jbourgogne.github.io/homestead-toolshed/
 
 | File | Target | Notes |
 |---|---|---|

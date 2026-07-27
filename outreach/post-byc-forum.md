@@ -18,7 +18,7 @@ eggs" and the legendary "My 'Free' Eggs are costing me a FORTUNE" genre are half
 of why I started keeping a spreadsheet. Eventually the spreadsheet became a
 proper little tool, and I'd rather give it away than keep it to myself:
 
-[SITE-URL]
+https://jbourgogne.github.io/homestead-toolshed/egg-cost/
 
 What it does:
 

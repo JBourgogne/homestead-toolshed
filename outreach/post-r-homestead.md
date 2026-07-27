@@ -13,7 +13,7 @@ Every winter someone in my life does the math on a feed bag and announces the
 eggs are costing us $9 a dozen, and every spring we decide we don't care. So I
 finally built the calculator version of that argument:
 
-[SITE-URL]
+https://jbourgogne.github.io/homestead-toolshed/egg-cost/
 
 You put in your flock size, lay rate, feed price, bedding/extras, and (optionally)
 what the coop cost spread over its lifespan, and it gives you an honest cost per
