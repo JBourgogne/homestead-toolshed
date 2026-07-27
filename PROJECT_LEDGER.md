@@ -128,6 +128,12 @@ The live URL is already in the drafts. Steps:
   token, so pushing this repo requires:
   `gh auth switch -u JBourgogne` → `git push` → `gh auth switch -u jacobbourgogneRSC`
   (keep the work account active at rest).
+- robots.txt on a GitHub *project* site is inert (crawlers read only the domain
+  root). Harmless; if SEO ever matters, submit sitemap.xml via Search Console
+  (optional human task, not urgent under the distribution-over-SEO strategy).
+- Accepted behavior (QA session 4): clearing an input computes with the default
+  value rather than blanking results. Common calculator pattern; revisit only
+  if real users report confusion.
 
 ## Roadmap
 
@@ -141,6 +147,32 @@ The live URL is already in the drafts. Steps:
 ---
 
 ## Session Log
+
+### Session 4 — 2026-07-26 (Claude Code, same day)
+- **Adversarial QA pass** on all three tools via two parallel review agents;
+  ~15 findings, the real ones fixed and re-verified in the browser:
+  - False "Copied!" possible on older iOS (execCommand fallback ignored its
+    return value; textarea selection needed the readonly+setSelectionRange
+    treatment) — fixed on all three tools, with honest "Couldn't copy" state.
+  - Clipboard promise rejection now falls through to the fallback.
+  - Egg tool breakdown bar was focusable-but-presentational for screen
+    readers — now decorative (aria-hidden) with the legend carrying the data;
+    feed segment now hides at $0 like its siblings.
+  - Coop tool: "Nest boxes for 0: 1" contradiction fixed; "5 ft 12 in" roost
+    rounding fixed; fractional bird counts now round; free-range toggle now
+    acknowledged in check mode; matched coop/run tie gets its own verdict.
+  - Flock tool: heritage-breed copy-summary garbling fixed (name lookup);
+    "1 hens" pluralization; "Summer surplus" relabeled honestly to average.
+  - Site-wide: muted text darkened to pass WCAG AA; aria-live scoped to
+    hero+verdict instead of the whole results region; Enter can no longer
+    reload-and-reset the forms; keyboard focus on the mode toggle now visible
+    on pre-:focus-visible browsers.
+- **Channel research done** (`outreach/CHANNELS.md`): permies.com explicitly
+  welcomes respectful free-tool sharing (draft ready), HomesteadingToday.com
+  draft ready, tier-3 list noted. Sequencing: r/homestead → permies →
+  r/BackYardChickens + BYC → Homesteading Today.
+- Parking-lot notes: robots.txt inert on project sites; defaults-on-empty
+  accepted as intended behavior.
 
 ### Session 3 — 2026-07-26 (Claude Code, same day)
 - **Built tool #3: "How many chickens do you need?"** (`/docs/flock-size/`) —

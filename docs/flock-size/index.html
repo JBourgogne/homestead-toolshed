@@ -59,14 +59,14 @@
     </fieldset>
   </form>
 
-  <section class="results" aria-live="polite">
-    <div class="hero-tile">
+  <section class="results">
+    <div class="hero-tile" aria-live="polite">
       <p class="label">You need about</p>
       <p class="hero-figure" id="heroValue">—</p>
       <p class="sub" id="heroSub"></p>
     </div>
 
-    <p class="verdict" id="verdict"></p>
+    <p class="verdict" id="verdict" aria-live="polite"></p>
 
     <div class="stat-row">
       <div class="stat-tile">
@@ -78,7 +78,7 @@
         <p class="value" id="statWinter">—</p>
       </div>
       <div class="stat-tile">
-        <p class="label">Summer surplus</p>
+        <p class="label">Spare eggs, average week</p>
         <p class="value" id="statSurplus">—</p>
       </div>
     </div>
@@ -139,6 +139,7 @@
   var $ = function (id) { return document.getElementById(id); };
 
   var RATES = { high: 5.5, good: 4.5, heritage: 3.5 };
+  var NAMES = { high: "production breeds", good: "solid layers", heritage: "heritage/dual-purpose birds" };
   var WINTER = 0.6;
 
   var num = function (id, fallback) {
@@ -158,7 +159,7 @@
     var winterEggs = hens * rate * WINTER;
     var surplus = avg - need;
 
-    $("heroValue").textContent = hens + " hens";
+    $("heroValue").textContent = hens + (hens === 1 ? " hen" : " hens");
     $("heroSub").textContent = "for " + Math.round(need) + " eggs a week" +
       (winter ? ", even in winter" : " on average");
 
@@ -169,11 +170,12 @@
       : "none";
 
     if (winter && surplus >= 12) {
-      $("verdict").innerHTML = "Sizing for winter means summer brings about " +
-        "<strong>" + Math.round(surplus) + " extra eggs a week</strong> — " +
+      $("verdict").innerHTML = "Sizing for winter means an average week brings " +
+        "about <strong>" + Math.round(surplus) + " extra eggs</strong> — " +
         "roughly " + Math.floor(surplus / 12) + " spare dozen" +
-        (Math.floor(surplus / 12) === 1 ? "" : "s") + ". Congratulations, " +
-        "you're about to become the egg person in your friend group.";
+        (Math.floor(surplus / 12) === 1 ? "" : "s") + ", and even more at the " +
+        "summer peak. Congratulations, you're about to become the egg person " +
+        "in your friend group.";
     } else if (winter) {
       $("verdict").innerHTML = "This flock covers you year-round with a " +
         "modest summer cushion — a comfortable, low-waste size.";
@@ -184,8 +186,8 @@
         "in-January plan — fine if you're fine with it.";
     }
 
-    lastSummary = "Our household needs about " + hens + " hens (" +
-      $("breed").selectedOptions[0].text.split(" — ")[0].toLowerCase() +
+    lastSummary = "Our household needs about " + hens +
+      (hens === 1 ? " hen (" : " hens (") + NAMES[$("breed").value] +
       ") for " + Math.round(need) + " eggs/week" +
       (winter ? ", sized so winter still covers us" : "") +
       ". Via https://jbourgogne.github.io/homestead-toolshed/flock-size/";
@@ -196,23 +198,34 @@
   });
   $("breed").addEventListener("change", calc);
   $("winterPlan").addEventListener("change", calc);
+  $("calc").addEventListener("submit", function (e) { e.preventDefault(); });
 
   $("copyBtn").addEventListener("click", function () {
     var btn = this;
-    var done = function () {
-      btn.textContent = "Copied!";
+    var flash = function (msg) {
+      btn.textContent = msg;
       setTimeout(function () { btn.textContent = "Copy my result"; }, 1600);
     };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(lastSummary).then(done);
-    } else {
+    var fallback = function () {
+      var ok = false;
       var ta = document.createElement("textarea");
       ta.value = lastSummary;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "absolute";
+      ta.style.left = "-9999px";
       document.body.appendChild(ta);
       ta.select();
-      document.execCommand("copy");
+      ta.setSelectionRange(0, ta.value.length);
+      try { ok = document.execCommand("copy"); } catch (err) {}
       document.body.removeChild(ta);
-      done();
+      flash(ok ? "Copied!" : "Couldn't copy, sorry");
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastSummary).then(function () {
+        flash("Copied!");
+      }, fallback);
+    } else {
+      fallback();
     }
   });
 

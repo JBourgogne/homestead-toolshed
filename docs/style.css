@@ -6,7 +6,7 @@
   --surface-raised: #ffffff;
   --ink: #2c2620;
   --ink-secondary: #5c5347;
-  --ink-muted: #8a7f70;
+  --ink-muted: #6e6456;
   --line: #e4dccc;
   --line-soft: #efe9db;
   --accent: #2f6b28;
@@ -27,7 +27,7 @@
     --surface-raised: #2b261e;
     --ink: #f0e9dd;
     --ink-secondary: #c4b9a8;
-    --ink-muted: #948a7a;
+    --ink-muted: #a49a89;
     --line: #3d362b;
     --line-soft: #322c22;
     --accent: #5b9b50;
@@ -219,6 +219,13 @@ input[type="number"]:focus-visible {
 .mode-toggle input:checked + label {
   background: var(--accent);
   color: #fff;
+}
+.mode-toggle input:focus + label {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.mode-toggle input:focus:not(:focus-visible) + label {
+  outline: none;
 }
 .mode-toggle input:focus-visible + label {
   outline: 2px solid var(--accent);

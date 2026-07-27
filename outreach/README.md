@@ -19,6 +19,10 @@ Drafts for the human to review, adapt, and post. Ground rules (from CLAUDE.md):
 
 | File | Target | Notes |
 |---|---|---|
-| `post-r-homestead.md` | r/homestead | Most tolerant of useful free resources |
+| `post-r-homestead.md` | r/homestead | Most tolerant of useful free resources — **post first** |
+| `post-permies.md` | permies.com | Friendliest written promo policy; durable threads — post second |
 | `post-r-backyardchickens.md` | r/BackYardChickens | Strictest rules — check for a weekly thread or ask mods |
 | `post-byc-forum.md` | BackyardChickens.com forum | Needs an account with a few genuine posts first |
+| `post-homesteading-today.md` | HomesteadingToday.com | Needs an account + participation week |
+
+Channel research, priorities, and sequencing: see `CHANNELS.md`.
