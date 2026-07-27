@@ -31,9 +31,10 @@ What it does:
 - Every formula is shown on the page — no black box
 
 And what it doesn't: no ads, no signup, no tracking, nothing leaves your
-browser. It's the first tool in a free-tools-for-homesteaders experiment I'm
-running (with an AI assistant doing a lot of the building — the chickens are
-mine though).
+browser. It's part of a free-tools-for-homesteaders experiment I'm running
+(with an AI assistant doing a lot of the building — the chickens are mine
+though). The site also has a coop & run size calculator and a "how many hens
+do you actually need" planner, if those threads are more your genre.
 
 If the defaults look off to your flock's reality, that's exactly the feedback I
 want — the defaults are meant to be honest typical figures, not best-case ones.

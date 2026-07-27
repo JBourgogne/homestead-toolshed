@@ -26,5 +26,9 @@ tell you every egg is currently priceless.
 
 No ads, no signup, nothing tracked, runs entirely in your browser. Built as a
 free-tools-for-the-community experiment (an AI assistant did much of the heavy
-lifting — I do the chicken-keeping). Would love a sanity check from people whose
-chicken math is stronger than mine: what did it say your dozen costs?
+lifting — I do the chicken-keeping). There are two sibling calculators on the
+site if you're planning rather than counting: coop & run sizing, and how many
+hens your household actually needs.
+
+Would love a sanity check from people whose chicken math is stronger than mine:
+what did it say your dozen costs?

@@ -88,8 +88,8 @@
       <div class="field">
         <label for="storePrice">Store price per dozen</label>
         <div class="prefix-input"><span class="prefix">$</span>
-        <input type="number" id="storePrice" value="4.50" min="0" step="0.25" inputmode="decimal"></div>
-        <p class="hint">Use the eggs you'd actually buy instead — pasture-raised often runs $7–9.</p>
+        <input type="number" id="storePrice" value="3.00" min="0" step="0.25" inputmode="decimal"></div>
+        <p class="hint">Default is a plain store dozen — swap in the eggs you'd actually buy (pasture-raised often runs $7–9).</p>
       </div>
     </fieldset>
   </form>
@@ -213,7 +213,7 @@
     var includeSetup = $("includeSetup").checked;
     var setupCost = num("setupCost", 600);
     var setupYears = Math.max(1, num("setupYears", 5));
-    var storePrice = num("storePrice", 4.5);
+    var storePrice = num("storePrice", 3);
 
     var feedMo = hens * feedRate * 30.4 / bagWeight * bagPrice;
     var setupMo = includeSetup ? setupCost / (setupYears * 12) : 0;

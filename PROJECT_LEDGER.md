@@ -20,10 +20,10 @@ Single source of truth. Read fully at session start. Update before session end.
    ledger and act on the actionable ones.
 2. **Do not build tool #4 before feedback arrives.** Three live tools and a
    pending first post is exactly the right amount of inventory; more building
-   now is the drift the anti-drift rules warn about. If a session happens
-   before feedback: small polish only, or research secondary channels
-   (Facebook groups, Discords, state homesteading forums) and draft those
-   posts.
+   now is the drift the anti-drift rules warn about. Secondary-channel
+   research and drafting is now DONE (S5) — if another session happens before
+   feedback, the only sanctioned work is small polish or verifying the Pages
+   rebuild of the S5 accuracy fixes.
 3. After the trilogy is posted: revisit the candidate list against any
    real feedback before picking tool #3.
 
@@ -134,6 +134,15 @@ The live URL is already in the drafts. Steps:
 - Accepted behavior (QA session 4): clearing an input computes with the default
   value rather than blanking results. Common calculator pattern; revisit only
   if real users report confusion.
+- Domain-accuracy audit (S5): all constants verified against extension/market
+  sources; 3 wrong values fixed (see S5 log). Two audit notes deliberately NOT
+  acted on: heavy-breed space (5/12 sq ft) sits at the low end of published
+  ranges (some sources say 8/15) and the +1 sq ft cold bump is modest — both
+  defensible since the page frames numbers as comfortable minimums; bump only
+  if community feedback pushes.
+- Store-egg default is now $3.00/dozen (mid-2026 BLS avg ~$2.14, advertised
+  conventional ~$1.50 in July 2026). Egg prices are volatile — re-check this
+  default every few months.
 
 ## Roadmap
 
@@ -147,6 +156,40 @@ The live URL is already in the drafts. Steps:
 ---
 
 ## Session Log
+
+### Session 5 — 2026-07-26 (Claude Code, same day)
+- **Integrity pass (all clean):** repo in sync with origin; live site diffed
+  byte-for-byte against local across all 7 core files + og-image — session 4's
+  fixes confirmed deployed. GitHub Issues confirmed enabled (0 open = no silent
+  feedback yet). Footer links consistent.
+- **Domain-accuracy audit** (research agent vs extension/market sources) — the
+  gap no prior session covered. 19 of 24 constants CONFIRMED (feed 0.25 lb/day,
+  4/10 sq ft, roost inches, nest ratios, all three lay-rate presets, feed bag
+  price, pasture-egg range…). **3 real errors found and fixed:**
+  - Store-egg default was $4.50/dozen vs mid-2026 reality ~$2.14 BLS avg
+    (independently re-verified: advertised conventional ~$1.50 in July 2026).
+    Would have read as thumb-on-the-scale to make backyard eggs look good —
+    the exact opposite of the honest-tool brand. Now $3.00 + clarified hint.
+  - Coop explainer mis-cited poultry.extension.org as allowing "1.5–3 sq ft"
+    — the linked page actually says 3–4 + 10. Anyone clicking would catch it.
+    Rewritten; the correct citation now *backs* our 4/10 defaults.
+  - Molt duration "4–8 weeks" understated → "often 8–12 weeks, sometimes
+    longer." Also hedged the flat 60% winter figure with the honest range
+    (first-winter pullets lay through; far-north heritage ≈ zero).
+- **Channel research round 2** (second agent): r/chickens (~190k) added to
+  Tier 1, r/Homesteading (~221k, fastest-growing) + r/selfreliance (~238k) to
+  Tier 2. Confirmed dead ends logged: Discord (all servers ≤500 members),
+  independent state forums (don't exist), Facebook (unresearchable logged-out,
+  link-hostile). Creator note: Welcome to Chickenlandia + Fresh Eggs Daily are
+  the only realistic future email angles. **Pacing rule added:** same link
+  across sibling subs from a young account in one window = spam signature;
+  space posts weeks apart, vary the lead tool.
+- **Drafts:** two new (`post-r-chickens.md` leads with flock-size,
+  `post-r-homesteading.md` leads with the trilogy arc). Fixed a staleness gap:
+  the three original drafts predated tool #3 — r/homestead draft now mentions
+  the full trilogy; both chicken-community drafts got a one-line sibling-tools
+  mention. (r/selfreliance draft deliberately deferred until Tier 1 lands.)
+- Pushed; live verification of the three fixed pages pending Pages rebuild.
 
 ### Session 4 — 2026-07-26 (Claude Code, same day)
 - **Adversarial QA pass** on all three tools via two parallel review agents;
