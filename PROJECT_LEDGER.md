@@ -123,9 +123,10 @@ The live URL is already in the drafts. Steps:
 - Monetization: revisit only after evidence of real usage (Phase 3).
 - Egg tool possible future enhancements (only if feedback asks): break-even
   selling price; breed presets for lay rate; metric units. Shipped > perfect.
-- Machine note: git auth for this repo uses the `JBourgogne` account via the
-  username pinned in the remote URL; the `gh` active account stays
-  `jacobbourgogneRSC` (work). Don't change either without reason.
+- Machine note: `gh`'s credential helper only serves the *active* account's
+  token, so pushing this repo requires:
+  `gh auth switch -u JBourgogne` → `git push` → `gh auth switch -u jacobbourgogneRSC`
+  (keep the work account active at rest).
 
 ## Roadmap
 
