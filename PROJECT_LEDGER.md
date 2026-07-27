@@ -6,10 +6,10 @@ Single source of truth. Read fully at session start. Update before session end.
 
 ## Current status
 
-**Phase:** 1 (foundation) — both Phase-1 tools LIVE; first post pending (human)
+**Phase:** 1 complete on the build side — chicken trilogy LIVE; first post pending (human)
 **Live site:** https://jbourgogne.github.io/homestead-toolshed/
 **Repo:** https://github.com/JBourgogne/homestead-toolshed (Pages: main + /docs)
-**Tools shipped:** 2 live (egg cost, coop size)
+**Tools shipped:** 3 live (flock size, coop size, egg cost)
 
 ---
 
@@ -18,9 +18,13 @@ Single source of truth. Read fully at session start. Update before session end.
 1. **Waiting on human:** Reddit account is aging (~2026-08-02 earliest post
    date). When the first post goes up, gather every piece of feedback into the
    ledger and act on the actionable ones.
-2. **Verify tool #2 on the live site** (pushed at end of session 2 — confirm
-   Pages rebuilt, spot-check both tools).
-3. After tools 1–2 are live and posted: revisit the candidate list against any
+2. **Do not build tool #4 before feedback arrives.** Three live tools and a
+   pending first post is exactly the right amount of inventory; more building
+   now is the drift the anti-drift rules warn about. If a session happens
+   before feedback: small polish only, or research secondary channels
+   (Facebook groups, Discords, state homesteading forums) and draft those
+   posts.
+3. After the trilogy is posted: revisit the candidate list against any
    real feedback before picking tool #3.
 
 ## Validation findings (Session 1, 2026-07-26)
@@ -56,6 +60,7 @@ gardening calculators (5, 6) have strong incumbents — deprioritized.
 |---|---|---|---|
 | 1 | What do your eggs really cost? | `/docs/egg-cost/` | **Live** — https://jbourgogne.github.io/homestead-toolshed/egg-cost/ |
 | 2 | How big should your coop be? | `/docs/coop-size/` | **Live** — https://jbourgogne.github.io/homestead-toolshed/coop-size/ |
+| 3 | How many chickens do you need? | `/docs/flock-size/` | **Live** — https://jbourgogne.github.io/homestead-toolshed/flock-size/ |
 
 ## Standing decisions log
 
@@ -136,6 +141,25 @@ The live URL is already in the drafts. Steps:
 ---
 
 ## Session Log
+
+### Session 3 — 2026-07-26 (Claude Code, same day)
+- **Built tool #3: "How many chickens do you need?"** (`/docs/flock-size/`) —
+  household egg habit (+optional share/sell dozens) → flock size, three breed
+  productivity presets, "size for winter" toggle (winter ≈ 60% of average lay
+  rate) with honest tradeoff messaging both ways (winter-short warning /
+  summer-surplus "egg dealer" verdict). Verified: all four test scenarios
+  correct. **The chicken trilogy is complete and cross-linked** in the
+  beginner's natural order: how many → how big → what cost.
+- **Distribution infrastructure:** og-image.png (1200×630, canvas-rendered,
+  on-brand) + og:url/og:image/twitter:card on every page — links shared to
+  Reddit/Facebook now get a real preview card; sitemap.xml + robots.txt;
+  404.html; "suggest a fix or a tool" GitHub-issues links in all footers.
+  Index reordered to trilogy order.
+- **Decision logged in Next Actions: no tool #4 until real feedback exists.**
+  Inventory is healthy; the bottleneck is now distribution, which is
+  correctly waiting on account aging.
+- Pushed; live verification of all three tools + OG image pending Pages
+  rebuild at session end.
 
 ### Session 2 — 2026-07-26 (Claude Code, same day)
 - **Human progress:** Reddit account created, r/homestead + r/BackYardChickens

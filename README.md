@@ -7,6 +7,11 @@ no ads, no signups, no tracking, no backend. Every tool shows its math.
 
 ## Tools
 
+- **[How many chickens do you need?](https://jbourgogne.github.io/homestead-toolshed/flock-size/)**
+  — from your household's egg habit to the right flock size, winter included.
+- **[How big should your coop be?](https://jbourgogne.github.io/homestead-toolshed/coop-size/)**
+  — coop & run square footage, roost length, and nest boxes; or check what
+  your existing coop honestly fits.
 - **[What do your eggs really cost?](https://jbourgogne.github.io/homestead-toolshed/egg-cost/)**
   — an honest cost per dozen for your backyard flock: feed, bedding, and the
   coop too.

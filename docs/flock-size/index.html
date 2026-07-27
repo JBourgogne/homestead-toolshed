@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Many Chickens Do You Need? — Flock Size Calculator</title>
+<meta name="description" content="Free flock size calculator: how many laying hens your household actually needs, based on your egg consumption, breed productivity, and honest winter laying rates. No ads, no signup.">
+<meta property="og:title" content="How many chickens do you need?">
+<meta property="og:description" content="A free, honest flock-size calculator — from your family's egg habit to the right number of hens, winter included.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jbourgogne.github.io/homestead-toolshed/flock-size/">
+<meta property="og:image" content="https://jbourgogne.github.io/homestead-toolshed/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%A3%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-header">
+  <a class="brand" href="../">🛖 The Homestead Toolshed</a>
+</header>
+
+<main>
+  <h1>How many chickens do you need?</h1>
+  <p class="lede">Work backwards from the eggs your household actually eats to
+  the flock that supplies them — with winter counted honestly, because hens
+  don't read the productivity charts.</p>
+
+  <form class="panel" id="calc" aria-label="Flock size inputs">
+    <fieldset>
+      <legend>Your egg habit</legend>
+      <div class="field">
+        <label for="eggsWeek">Eggs your household eats per week</label>
+        <input type="number" id="eggsWeek" value="16" min="1" max="500" step="1" inputmode="numeric">
+        <p class="hint">Count breakfast, baking, and the eggs you give the dog. A typical adult goes through 5–6 a week.</p>
+      </div>
+      <div class="field">
+        <label for="shareDozens">Extra dozens per week to share or sell</label>
+        <input type="number" id="shareDozens" value="0" min="0" max="50" step="0.5" inputmode="decimal">
+        <p class="hint">Optional — the neighbors will start expecting them, though.</p>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your birds</legend>
+      <div class="field-wide">
+        <label for="breed">Breed productivity</label>
+        <select id="breed">
+          <option value="high">Production breeds — Leghorns, sex-links (~5.5 eggs/wk)</option>
+          <option value="good" selected>Solid layers — Australorps, Rocks, Orpingtons (~4.5 eggs/wk)</option>
+          <option value="heritage">Heritage &amp; dual-purpose (~3.5 eggs/wk)</option>
+        </select>
+      </div>
+      <div class="toggle-row">
+        <input type="checkbox" id="winterPlan" checked>
+        <label for="winterPlan">Size for winter, when laying drops (recommended)</label>
+      </div>
+    </fieldset>
+  </form>
+
+  <section class="results" aria-live="polite">
+    <div class="hero-tile">
+      <p class="label">You need about</p>
+      <p class="hero-figure" id="heroValue">—</p>
+      <p class="sub" id="heroSub"></p>
+    </div>
+
+    <p class="verdict" id="verdict"></p>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <p class="label">Average eggs/week</p>
+        <p class="value" id="statAvg">—</p>
+      </div>
+      <div class="stat-tile">
+        <p class="label">Winter eggs/week</p>
+        <p class="value" id="statWinter">—</p>
+      </div>
+      <div class="stat-tile">
+        <p class="label">Summer surplus</p>
+        <p class="value" id="statSurplus">—</p>
+      </div>
+    </div>
+
+    <div class="share-row">
+      <button type="button" class="share" id="copyBtn">Copy my result</button>
+    </div>
+  </section>
+
+  <details class="how">
+    <summary>How this is calculated</summary>
+    <div class="how-body">
+      <p>
+        <code>hens = weekly eggs needed ÷ eggs per hen per week</code>
+      </p>
+      <p>The lay rates behind the breed presets are year-round realistic
+      averages for healthy backyard hens in their first two laying years —
+      not hatchery-brochure peaks:</p>
+      <table>
+        <tr><th>Preset</th><th>Average</th><th>Winter (~60%)</th></tr>
+        <tr><td>Production breeds</td><td>5.5 /wk</td><td>3.3 /wk</td></tr>
+        <tr><td>Solid layers</td><td>4.5 /wk</td><td>2.7 /wk</td></tr>
+        <tr><td>Heritage / dual-purpose</td><td>3.5 /wk</td><td>2.1 /wk</td></tr>
+      </table>
+      <p>With <strong>"size for winter"</strong> on, the flock is sized so the
+      winter rate still covers your need — extension guidance notes production
+      falls substantially as daylight shortens (without supplemental lighting);
+      we use ~60% of average as a realistic winter figure. The flip side is a
+      summer surplus, which is how everyone accidentally becomes an egg dealer.</p>
+      <p>Not modeled: the first months before pullets start laying, molting
+      pauses (4–8 weeks, usually in fall), and the gentle decline after year
+      two — all reasons the standing advice is <em>round up</em>. For breed
+      selection and flock care, your local
+      <a href="https://extension.org" rel="noopener">cooperative extension
+      service</a> is the gold standard.</p>
+    </div>
+  </details>
+
+  <p class="note">More chicken math:
+    <a href="../coop-size/">how big a coop for this flock?</a> ·
+    <a href="../egg-cost/">what will the eggs cost?</a>
+  </p>
+  <p class="note">Everything runs in your browser — nothing is sent or stored anywhere.</p>
+</main>
+
+<footer class="site-footer">
+  <p><a href="../">The Homestead Toolshed</a> — free, honest planning tools for
+  backyard self-sufficiency. No ads, no signups, no tracking.
+  <a href="https://github.com/JBourgogne/homestead-toolshed/issues">Suggest a fix or a tool</a>.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var RATES = { high: 5.5, good: 4.5, heritage: 3.5 };
+  var WINTER = 0.6;
+
+  var num = function (id, fallback) {
+    var v = parseFloat($(id).value);
+    return isFinite(v) && v >= 0 ? v : fallback;
+  };
+
+  var lastSummary = "";
+
+  function calc() {
+    var need = Math.max(1, num("eggsWeek", 16)) + num("shareDozens", 0) * 12;
+    var rate = RATES[$("breed").value];
+    var winter = $("winterPlan").checked;
+
+    var hens = Math.ceil(need / (winter ? rate * WINTER : rate));
+    var avg = hens * rate;
+    var winterEggs = hens * rate * WINTER;
+    var surplus = avg - need;
+
+    $("heroValue").textContent = hens + " hens";
+    $("heroSub").textContent = "for " + Math.round(need) + " eggs a week" +
+      (winter ? ", even in winter" : " on average");
+
+    $("statAvg").textContent = String(Math.round(avg));
+    $("statWinter").textContent = String(Math.round(winterEggs));
+    $("statSurplus").textContent = surplus > 0
+      ? "+" + Math.round(surplus) + " eggs/wk"
+      : "none";
+
+    if (winter && surplus >= 12) {
+      $("verdict").innerHTML = "Sizing for winter means summer brings about " +
+        "<strong>" + Math.round(surplus) + " extra eggs a week</strong> — " +
+        "roughly " + Math.floor(surplus / 12) + " spare dozen" +
+        (Math.floor(surplus / 12) === 1 ? "" : "s") + ". Congratulations, " +
+        "you're about to become the egg person in your friend group.";
+    } else if (winter) {
+      $("verdict").innerHTML = "This flock covers you year-round with a " +
+        "modest summer cushion — a comfortable, low-waste size.";
+    } else {
+      $("verdict").innerHTML = "Heads up: sized to the average, <strong>winter " +
+        "will run short</strong> (about " + Math.round(winterEggs) + " eggs/wk " +
+        "against your " + Math.round(need) + "). That's the store-bought-eggs-" +
+        "in-January plan — fine if you're fine with it.";
+    }
+
+    lastSummary = "Our household needs about " + hens + " hens (" +
+      $("breed").selectedOptions[0].text.split(" — ")[0].toLowerCase() +
+      ") for " + Math.round(need) + " eggs/week" +
+      (winter ? ", sized so winter still covers us" : "") +
+      ". Via https://jbourgogne.github.io/homestead-toolshed/flock-size/";
+  }
+
+  ["eggsWeek", "shareDozens"].forEach(function (id) {
+    $(id).addEventListener("input", calc);
+  });
+  $("breed").addEventListener("change", calc);
+  $("winterPlan").addEventListener("change", calc);
+
+  $("copyBtn").addEventListener("click", function () {
+    var btn = this;
+    var done = function () {
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = "Copy my result"; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastSummary).then(done);
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = lastSummary;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  calc();
+})();
+</script>
+</body>
+</html>
